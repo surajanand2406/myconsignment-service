@@ -1,0 +1,88 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema
+const locationSchema = new mongoose.Schema({
+   type:{
+       type:String,
+       default:"Point"
+   },
+   coordinates:{
+       type:[Number],
+       index:'2dsphere'
+   }
+})
+const ListingSchema = new mongoose.Schema({
+    title:{
+        type:String,
+        required:true
+    },
+    description:{
+        type:String
+    },
+    price:{
+        type:Number
+    },
+    currency:{
+        type:String,
+        default:'USD'
+    },
+    trade:{
+        type:Boolean,
+        default:false
+    },
+    shippingNational:{
+        type:Boolean,
+        default:false
+    },
+    shippingInternational:{
+        type:Boolean,
+        default:false
+    },
+    imageLinks:{
+        type:[String]
+    },
+    geometry:{
+        type:locationSchema
+    },
+    firebaseUID:{
+        type:String,
+        required:true
+    },
+    createdDate:{
+        type:Date,
+        default:Date.now()
+    },
+    Category:{
+        type:String,
+    },
+    subCategory:{
+        type:String,
+    },
+    accountID:{
+        type:String
+    },
+    listingID:{
+        type:String,
+        default:"listing"+Math.round(Math.random()*10000000)
+    },
+  shippingID:{
+    type:Schema.Types.ObjectId,
+    ref:"shippings"
+},
+isPRO:{
+    type:Boolean,
+    default:false
+},
+sponsor:{
+    type:Boolean,
+    default:false
+},
+sponsorRate:{
+    type:Number
+},
+tags:{
+    type:[String]
+}
+});
+ListingSchema.index({name:'text','title':"text"})
+ListingSchema.index({geometry:"2dsphere"});
+module.exports = mongoose.model('Drafts', ListingSchema);

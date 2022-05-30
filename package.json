@@ -1,0 +1,35 @@
+{
+  "name": "artisanbackend",
+  "version": "1.0.0",
+  "description": "Artisan backend API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Hamza Ali",
+  "license": "ISC",
+  "dependencies": {
+    "@paypal/payouts-sdk": "^1.0.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "cryptr": "^6.0.2",
+    "ebay-oauth-nodejs-client": "^1.2.0",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.1.6",
+    "firebase-admin": "9.11.0",
+    "moment": "^2.26.0",
+    "mongoose": "^5.5.1",
+    "node-cron": "^2.0.3",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.3",
+    "request": "^2.88.2",
+    "socket.io": "^2.2.0",
+    "stripe": "^7.0.0",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-dist": "^3.27.0",
+    "swagger-ui-express": "^4.1.4",
+    "uid": "^2.0.0"
+  }
+}
